@@ -11,8 +11,8 @@ provider "genesyscloud" {
 }
 
 resource "genesyscloud_user" "sf_johnsmith" {
-  email           = "john.smith@simplefinancial.com"
-  name            = "John Smith"
+  email           = "daniel.day@ddayfinancial.com"
+  name            = "Daniel Day"
   password        = "b@Zinga1972"
   state           = "active"
   department      = "IRA"
@@ -59,8 +59,8 @@ resource "genesyscloud_user" "sf_janesmith" {
 }
 
 resource "genesyscloud_routing_queue" "queue_ira" {
-  name                     = "Simple Financial IRA queue"
-  description              = "Simple Financial IRA questions and answers"
+  name                     = "DDay Financial IRA queue"
+  description              = "DDay Financial IRA questions and answers"
   acw_wrapup_prompt        = "MANDATORY_TIMEOUT"
   acw_timeout_ms           = 300000
   skill_evaluation_method  = "BEST"
@@ -101,8 +101,8 @@ resource "genesyscloud_flow" "mysimpleflow" {
 
 
 resource "genesyscloud_telephony_providers_edges_did_pool" "mygcv_number" {
-  start_phone_number = "+19205422729"
-  end_phone_number   = "+19205422729"
+  start_phone_number = "+17043214567"
+  end_phone_number   = "+17043214567"
   description        = "GCV Number for inbound calls"
   comments           = "Additional comments"
 }
@@ -110,7 +110,7 @@ resource "genesyscloud_telephony_providers_edges_did_pool" "mygcv_number" {
 resource "genesyscloud_architect_ivr" "mysimple_ivr" {
   name               = "A simple IVR"
   description        = "A sample IVR configuration"
-  dnis               = ["+19205422729", "+19205422729"]
+  dnis               = ["+17043214567", "+17043214567"]
   open_hours_flow_id = genesyscloud_flow.mysimpleflow.id
   depends_on         = [
     genesyscloud_flow.mysimpleflow,
